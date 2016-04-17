@@ -40,8 +40,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
-        let cell:UITableViewCell = self.dataTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel?.text = "\(self.dataItems[indexPath.row].id)"
+     
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("DataCustomTableViewCell", forIndexPath: indexPath) as! DataCustomTableViewCell
+        
+
+        cell.userId.text = "\(self.dataItems[indexPath.row].id)"
+        cell.userNumber.text = "\(self.dataItems[indexPath.row].userNumber)"
+        cell.userAddress.text = "\(self.dataItems[indexPath.row].address)"
+        cell.userLat.text = "\(self.dataItems[indexPath.row].latitude)"
+        cell.userLang.text = "\(self.dataItems[indexPath.row].langtitude)"
+        
         return cell
     }
   
