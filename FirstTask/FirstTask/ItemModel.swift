@@ -34,16 +34,15 @@ class ItemModel {
             return nil
         }
     }
-    
     //Using this initializer to parse JSON from NSDictionary to data model
     init(dic: NSDictionary)
     {
-        self.id = (dic["id"] as? Double)!
-        self.langtitude = (dic["langtitude"] as? Double)!
-        self.latitude = (dic["latitude"] as? Double)!
+        self.id = (dic["id"] as! NSString).doubleValue
+        self.langtitude = (dic["langtitude"] as! NSString).doubleValue
+        self.latitude = (dic["latitude"] as! NSString).doubleValue
         self.userNumber = (dic["userNumber"] as? String)!
         self.address = (dic["address"] as? String)!
-        self.userFK = (dic["userFK"] as? Double)!
+        self.userFK = (dic["userFK"] as! NSString).doubleValue
     }
 
 }
