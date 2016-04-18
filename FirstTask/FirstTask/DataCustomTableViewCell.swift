@@ -14,11 +14,7 @@ class DataCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var userNumber: UILabel!
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var userLang: UILabel!
-    
     @IBOutlet weak var userLat: UILabel!
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

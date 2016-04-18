@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Contacts
 
 typealias ServiceResponse = (NSArray?, NSError?) -> Void
 
@@ -18,7 +19,7 @@ class ServicesManager: NSObject {
     }
     
     func getAllData(serviceResponse: ServiceResponse){
-        ConnectivityManager.makeHTTPGetRequest("http://amit-learning.com/parkForMe/index.php",onCompletion: { dic, error-> Void in
+        ConnectivityManager.makeHTTPGetRequest(httpURL,onCompletion: { dic, error-> Void in
             if let e = error{
                 serviceResponse(nil,e)
             }else{
@@ -29,4 +30,6 @@ class ServicesManager: NSObject {
         })
        
     }
+    
+    
 }

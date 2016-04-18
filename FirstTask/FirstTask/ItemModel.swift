@@ -11,17 +11,17 @@ import UIKit
 class ItemModel {
     
     // MARK: Properties
-    var id: Double
-    var langtitude: Double
-    var latitude: Double
+    var id: String
+    var langtitude: String
+    var latitude: String
     var userNumber: String
     var address: String
-    var userFK: Double
+    var userFK: String
     
     
     // MARK: Initialization
     //Make it as failable initializer to can return nil when initialization
-    init?(id: Double, langtitude: Double, latitude: Double, userNumber: String, address: String, userFK: Double) {
+    init?(id: String, langtitude: String, latitude: String, userNumber: String, address: String, userFK: String) {
         // Initialize stored properties.
         self.id = id
         self.langtitude = langtitude
@@ -30,19 +30,19 @@ class ItemModel {
         self.address = address
         self.userFK = userFK
         
-        if(id < 0){
+        if(id == "0"){
             return nil
         }
     }
     //Using this initializer to parse JSON from NSDictionary to data model
     init(dic: NSDictionary)
     {
-        self.id = (dic["id"] as! NSString).doubleValue
-        self.langtitude = (dic["langtitude"] as! NSString).doubleValue
-        self.latitude = (dic["latitude"] as! NSString).doubleValue
+        self.id = (dic["id"] as? String)!
+        self.langtitude = (dic["langtitude"] as? String)!
+        self.latitude = (dic["latitude"] as? String)!
         self.userNumber = (dic["userNumber"] as? String)!
         self.address = (dic["address"] as? String)!
-        self.userFK = (dic["userFK"] as! NSString).doubleValue
+        self.userFK = (dic["userFK"] as? String)!
     }
 
 }
