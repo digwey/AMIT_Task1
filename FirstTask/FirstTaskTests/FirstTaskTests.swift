@@ -32,5 +32,24 @@ class FirstTaskTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+    func testInitDataModel(){
+        //Generating Nil Item model
+        let itemModel = ItemModel(id: "0", langtitude: "Lan", latitude: "lat", userNumber: "UN", address: "Address", userFK: "UFK")
+        
+        
+        //It should be success because item Model with negative ID generate nil Model
+        XCTAssertNil(itemModel)
+        
+        //Successfully generated Sector model
+        let itemModelSuccessed = ItemModel(id: "1", langtitude: "Lan", latitude: "lat", userNumber: "UN", address: "Address", userFK: "UFK")
+        
+        //Test to insure mapping between model consturctor and model properties
+        XCTAssertEqual(itemModelSuccessed!.id,"1")
+        XCTAssertEqual(itemModelSuccessed!.langtitude,"Lan")
+        XCTAssertEqual(itemModelSuccessed!.latitude,"lat")
+        XCTAssertEqual(itemModelSuccessed!.userNumber,"UN")
+        XCTAssertEqual(itemModelSuccessed!.address,"Address")
+        XCTAssertEqual(itemModelSuccessed!.userFK,"UFK")
+    }
+
 }
